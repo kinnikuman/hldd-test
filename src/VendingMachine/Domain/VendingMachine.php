@@ -8,7 +8,7 @@ class VendingMachine
 {
     /**
      * @param Item[] $items
-     * @param Coin[] $coins
+     * @param MachineCoins[] $coins
      */
     public function __construct(
         private readonly array $items,

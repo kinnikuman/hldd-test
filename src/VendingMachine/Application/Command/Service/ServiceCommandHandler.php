@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\VendingMachine\Application\Command\Service;
 
 use App\VendingMachine\Domain\Coin;
+use App\VendingMachine\Domain\MachineCoins;
 use App\VendingMachine\Domain\Item;
 use App\VendingMachine\Domain\VendingMachine;
 use App\VendingMachine\Domain\VendingMachineRepository;
@@ -26,8 +27,8 @@ class ServiceCommandHandler
         );
 
         $coins = array_map(
-            static fn(MoneyData $moneyData) => new Coin(
-                $moneyData->coinCents,
+            static fn(MoneyData $moneyData) => new MachineCoins(
+                new Coin($moneyData->coinCents),
                 $moneyData->numberOfCoins,
             ), $command->money
         );

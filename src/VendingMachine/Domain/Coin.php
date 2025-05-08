@@ -20,24 +20,20 @@ class Coin
 
     public function __construct(
         private readonly int $coinCents,
-        private readonly int $numberOfCoins,
     ) {
         if(!in_array($coinCents, self::VALID_COINS)) {
             throw InvalidCoinException::forCents($this->coinCents);
         }
-        if($numberOfCoins < 0) {
-            throw InvalidCoinException::forNumberOfCoins($numberOfCoins);
-        }
+    }
+
+    public static function fromFloat(float $coinValue): self
+    {
+        return new self((int)($coinValue * 100));
     }
 
     public function getCoinCents(): int
     {
         return $this->coinCents;
-    }
-
-    public function getNumberOfCoins(): int
-    {
-        return $this->numberOfCoins;
     }
 
 }

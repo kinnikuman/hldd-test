@@ -10,6 +10,8 @@ use App\VendingMachine\Application\Command\Service\MoneyData;
 use App\VendingMachine\Application\Command\Service\ServiceCommand;
 use App\VendingMachine\Application\Command\Service\ServiceCommandHandler;
 use App\VendingMachine\Domain\Coin;
+use App\VendingMachine\Domain\InvalidMachineCoinException;
+use App\VendingMachine\Domain\MachineCoins;
 use App\VendingMachine\Domain\InvalidCoinException;
 use App\VendingMachine\Domain\InvalidItemException;
 use App\VendingMachine\Domain\Item;
@@ -60,7 +62,7 @@ class ServiceCommandHandlerTest extends TestCase
         $items = [new ItemData('WATER', 1, 0.25)];
         $money = [new MoneyData(100, -1)];
 
-        $this->expectException(InvalidCoinException::class);
+        $this->expectException(InvalidMachineCoinException::class);
         $this->execute($items, $money);
     }
 
@@ -74,7 +76,7 @@ class ServiceCommandHandlerTest extends TestCase
         $savedVendorMachine = $this->vendingMachineRepositorySpy->getVendingMachineForSave();
 
         self::assertEquals([new Item('WATER', 1, 25)], $savedVendorMachine->getItems());
-        self::assertEquals([new Coin( 100, 2)], $savedVendorMachine->getCoins());
+        self::assertEquals([new MachineCoins( new Coin(100), 2)], $savedVendorMachine->getCoins());
     }
 
 

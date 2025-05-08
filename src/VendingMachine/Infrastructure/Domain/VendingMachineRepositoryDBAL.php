@@ -44,7 +44,7 @@ class VendingMachineRepositoryDBAL implements VendingMachineRepository
                     'number_of_coins' => ':number_of_coins',
 
                 ])
-                ->setParameter('coin_in_cents', $coin->getCoinCents())
+                ->setParameter('coin_in_cents', $coin->getCoin()->getCoinCents())
                 ->setParameter('number_of_coins', $coin->getNumberOfCoins())
                 ->executeQuery();
         }

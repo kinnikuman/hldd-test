@@ -12,9 +12,4 @@ class InvalidCoinException extends DomainException
     {
         throw new self('Invalid coin cents: ' . $cents);
     }
-
-    public static function forNumberOfCoins(int $numberOfCoins): self
-    {
-        throw new self('Number of coins must be greater or equals than 0');
-    }
 }
