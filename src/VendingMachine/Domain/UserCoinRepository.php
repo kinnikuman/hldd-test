@@ -7,4 +7,6 @@ namespace App\VendingMachine\Domain;
 interface UserCoinRepository
 {
     public function save(Coin $coin): void;
+
+    public function removeAll();
 }

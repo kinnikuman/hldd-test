@@ -36,4 +36,9 @@ class Coin
         return $this->coinCents;
     }
 
+    public function getCoinAsFloat(): float
+    {
+        return $this->coinCents / 100;
+    }
+
 }
