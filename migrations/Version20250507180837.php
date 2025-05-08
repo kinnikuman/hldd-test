@@ -33,11 +33,19 @@ final class Version20250507180837 extends AbstractMigration
                 number_of_coins INT NOT NULL
             )
         ');
+
+        $this->addSql('
+            CREATE TABLE user_coins (
+                id VARCHAR(36) NOT NULL PRIMARY KEY,
+                coin_in_cents INT
+            )
+        ');
     }
 
     public function down(Schema $schema): void
     {
         $this->addSql('DROP TABLE vending_machine_items');
         $this->addSql('DROP TABLE vending_machine_coins');
+        $this->addSql('DROP TABLE user_coins');
     }
 }
