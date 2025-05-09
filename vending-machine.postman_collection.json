@@ -38,24 +38,15 @@
 			"request": {
 				"method": "POST",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"items\": [{\n        \"name\": \"SODA\",\n        \"price\": 0.25,\n        \"count\": 7\n    }, {\n        \"name\": \"WATER\",\n        \"price\": 1,\n        \"count\": 510\n    }],\n    \"money\":[{\n        \"coinCents\":100,\n        \"numberOfCoins\":3\n    },\n    {\n        \"coinCents\":25,\n        \"numberOfCoins\":8\n    }]\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "{{host}}/api/coins/1",
+					"raw": "{{host}}/api/coins/0.1",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
 						"coins",
-						"1"
+						"0.1"
 					]
 				}
 			},
@@ -63,21 +54,9 @@
 		},
 		{
 			"name": "return user coins",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"items\": [{\n        \"name\": \"SODA\",\n        \"price\": 0.25,\n        \"count\": 7\n    }, {\n        \"name\": \"WATER\",\n        \"price\": 1,\n        \"count\": 510\n    }],\n    \"money\":[{\n        \"coinCents\":100,\n        \"numberOfCoins\":3\n    },\n    {\n        \"coinCents\":25,\n        \"numberOfCoins\":8\n    }]\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "{{host}}/api/coins",
 					"host": [
@@ -96,15 +75,6 @@
 			"request": {
 				"method": "POST",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"items\": [{\n        \"name\": \"SODA\",\n        \"price\": 0.25,\n        \"count\": 7\n    }, {\n        \"name\": \"WATER\",\n        \"price\": 1,\n        \"count\": 510\n    }],\n    \"money\":[{\n        \"coinCents\":100,\n        \"numberOfCoins\":3\n    },\n    {\n        \"coinCents\":25,\n        \"numberOfCoins\":8\n    }]\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "{{host}}/api/items/WATER/buy",
 					"host": [
