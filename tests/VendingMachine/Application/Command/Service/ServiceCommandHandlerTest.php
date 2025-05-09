@@ -73,7 +73,7 @@ class ServiceCommandHandlerTest extends TestCase
 
         $this->execute($items, $money);
 
-        $savedVendorMachine = $this->vendingMachineRepositorySpy->getVendingMachineForSave();
+        $savedVendorMachine = $this->vendingMachineRepositorySpy->getSavedVendingMachine();
 
         self::assertEquals([new Item('WATER', 1, 25)], $savedVendorMachine->getItems());
         self::assertEquals([new MachineCoins( new Coin(100), 2)], $savedVendorMachine->getCoins());

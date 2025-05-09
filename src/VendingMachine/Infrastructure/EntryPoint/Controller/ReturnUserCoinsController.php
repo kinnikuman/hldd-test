@@ -16,7 +16,6 @@ class ReturnUserCoinsController
 {
     public function __construct(
         private readonly QueryBus $queryBus,
-        private readonly CommandBus $commandBus,
     )
     {
     }
@@ -25,8 +24,6 @@ class ReturnUserCoinsController
     public function __invoke(): JsonResponse
     {
         $coinsToReturn = $this->queryBus->execute(new ReturnUserCoinsQuery());
-        $this->commandBus->execute(new ReturnUserCoinsCommand());
-
         return new JsonResponse($coinsToReturn);
     }
 }
