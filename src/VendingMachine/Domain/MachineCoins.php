@@ -8,7 +8,7 @@ class MachineCoins
 {
     public function __construct(
         private readonly Coin $coin,
-        private readonly int $numberOfCoins,
+        private int $numberOfCoins,
     ) {
         if($numberOfCoins < 0) {
             throw InvalidMachineCoinException::forNumberOfCoins($numberOfCoins);
@@ -23,6 +23,16 @@ class MachineCoins
     public function getNumberOfCoins(): int
     {
         return $this->numberOfCoins;
+    }
+
+    public function decrease(): void
+    {
+        $this->numberOfCoins--;
+    }
+
+    public function increase(): void
+    {
+        $this->numberOfCoins++;
     }
 
 }

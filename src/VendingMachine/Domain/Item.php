@@ -8,7 +8,7 @@ class Item
 {
     public function __construct(
         private readonly string $name,
-        private readonly int $count,
+        private int $count,
         private readonly int $priceInCents,
     ) {
         if ($count < 0) {
@@ -40,6 +40,14 @@ class Item
     public function getPriceInCents(): int
     {
         return $this->priceInCents;
+    }
+
+    public function decrease(): void
+    {
+        if ($this->count === 0) {
+            throw ItemOutOfStockException::forItem($this->name);
+        }
+        $this->count--;
     }
 
 }

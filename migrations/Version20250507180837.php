@@ -40,6 +40,19 @@ final class Version20250507180837 extends AbstractMigration
                 coin_in_cents INT
             )
         ');
+
+        $this->addSql("INSERT INTO vending_machine_items (name, price_in_cents, count) VALUES 
+            ('WATER', 65, 10),
+            ('JUICE', 100, 8),
+            ('SODA', 150, 12)
+        ");
+
+        $this->addSql("INSERT INTO vending_machine_coins (coin_in_cents, number_of_coins) VALUES 
+            ( 100, 2),
+            ( 25, 1),
+            (10, 2),
+            (5, 3)
+        ");
     }
 
     public function down(Schema $schema): void

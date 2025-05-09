@@ -41,4 +41,9 @@ class Coin
         return $this->coinCents / 100;
     }
 
+    public function isEqualTo(Coin $coin): bool
+    {
+        return $this->coinCents === $coin->coinCents;
+    }
+
 }

@@ -22,7 +22,7 @@ class MessengerCommandBus implements CommandBus
     public function execute(Command $command)
     {
         try {
-            $this->handle($command);
+            return $this->handle($command);
         } catch (HandlerFailedException $e) {
             throw $e->getPrevious();
         }
