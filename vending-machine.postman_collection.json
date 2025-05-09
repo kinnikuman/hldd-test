@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "38819d3f-ba0d-4a9a-bf8f-20fb4abd2866",
+		"name": "vending-machine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1027471"
+	},
+	"item": [
+		{
+			"name": "service",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"items\": [{\n        \"name\": \"SODA\",\n        \"price\": 0.25,\n        \"count\": 7\n    }, {\n        \"name\": \"WATER\",\n        \"price\": 1,\n        \"count\": 510\n    }],\n    \"money\":[{\n        \"coinCents\":100,\n        \"numberOfCoins\":3\n    },\n    {\n        \"coinCents\":25,\n        \"numberOfCoins\":8\n    }]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/service",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"service"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert user coins",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"items\": [{\n        \"name\": \"SODA\",\n        \"price\": 0.25,\n        \"count\": 7\n    }, {\n        \"name\": \"WATER\",\n        \"price\": 1,\n        \"count\": 510\n    }],\n    \"money\":[{\n        \"coinCents\":100,\n        \"numberOfCoins\":3\n    },\n    {\n        \"coinCents\":25,\n        \"numberOfCoins\":8\n    }]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/coins/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"coins",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "return user coins",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"items\": [{\n        \"name\": \"SODA\",\n        \"price\": 0.25,\n        \"count\": 7\n    }, {\n        \"name\": \"WATER\",\n        \"price\": 1,\n        \"count\": 510\n    }],\n    \"money\":[{\n        \"coinCents\":100,\n        \"numberOfCoins\":3\n    },\n    {\n        \"coinCents\":25,\n        \"numberOfCoins\":8\n    }]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/coins",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"coins"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buy item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"items\": [{\n        \"name\": \"SODA\",\n        \"price\": 0.25,\n        \"count\": 7\n    }, {\n        \"name\": \"WATER\",\n        \"price\": 1,\n        \"count\": 510\n    }],\n    \"money\":[{\n        \"coinCents\":100,\n        \"numberOfCoins\":3\n    },\n    {\n        \"coinCents\":25,\n        \"numberOfCoins\":8\n    }]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/items/WATER/buy",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"items",
+						"WATER",
+						"buy"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
